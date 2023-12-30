@@ -115,6 +115,18 @@ require('lazy').setup({
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
   {
+  "NeogitOrg/neogit",
+  dependencies = {
+    "nvim-lua/plenary.nvim",         -- required
+    "sindrets/diffview.nvim",        -- optional - Diff integration
+
+    -- Only one of these is needed, not both.
+    "nvim-telescope/telescope.nvim", -- optional
+    "ibhagwan/fzf-lua",              -- optional
+  },
+  config = true
+},
+  {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
@@ -188,7 +200,6 @@ require('lazy').setup({
       end,
     },
   },
-
   {
     -- Theme inspired by Atom
     'navarasu/onedark.nvim',
@@ -197,7 +208,7 @@ require('lazy').setup({
       vim.cmd.colorscheme 'onedark'
     end,
   },
-
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -273,6 +284,7 @@ require('lazy').setup({
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
+vim.cmd.colorscheme "catppuccin"
 -- Set highlight on search
 vim.o.hlsearch = false
 
